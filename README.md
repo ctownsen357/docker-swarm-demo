@@ -1,6 +1,6 @@
 # docker-swarm-demo
 
-*Note:* This isn't complete yet.  
+**Note:** This isn't complete yet.  
 
 This assumes you have several machines or VMs with Docker 1.12.x or greater installed.  It is very important that each machines time is synchronized via NTP or manually. For a quick and dirty test you can sync them manually with the following command:
 
@@ -14,7 +14,7 @@ $ sudo docker swarm init
 ```
 This command will return the command you need to use in order to join the cluster; the command to be executed on your worker nodes.
 
-* Note: * It has been my experience that on some machines setting the `--listen-addr your.ip.address:2377` is necessary.
+**Note:** It has been my experience that on some machines setting the `--listen-addr your.ip.address:2377` is necessary.
 * 
 
 ### Initialize one or more workers
