@@ -1,4 +1,7 @@
 # docker-swarm-demo
+
+*Note:* This isn't complete yet.  
+
 This assumes you have several machines or VMs with Docker 1.12.x or greater installed.  It is very important that each machines time is synchronized via NTP or manually. For a quick and dirty test you can sync them manually with the following command:
 
 ```{bash}
