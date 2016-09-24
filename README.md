@@ -53,13 +53,13 @@ docker service create --replicas 1 --network my-app-network \
 
 ### SSH into the node that is running demo-alpine and attach to it's shell
 
-`{bash}
+```{bash}
 docker ps #lists all the running containers on that node, find the container ID of demo-alpine
 
 docker exec -i -t <container id> /bin/sh
-`
+```
 ### Once in the container, install Python, pip, and redis for Python:
-`{bash}
+```{bash}
 
 apk update
 
@@ -68,9 +68,9 @@ apk add python
 apk add py-pip
 
 pip install redis
-`
+```
 create a script to hit your redis service by container/service name vi test.py and paste something like this:
-`{python}
+```{python}
 import redis
 import time
 
@@ -87,7 +87,7 @@ while loopy == True:
     print(r.get('counter'))
     time.sleep(3)
 run the script from within your demo-alpine container
-`
+```
 ### run your new script
 `python test.py`
 
@@ -96,9 +96,9 @@ Notice that I've referenced the redis service by its container/service name not 
 For extra fun, if it is working for you, scale the redis service to see it scale to the already running Python script.
 
 ### ssh into the manager node from another terminal session so you don't stop your demo-alpine session
-`{bash}
+```{bash}
 docker service scale demo-redis scaled to 3
-`
+```
 You should start seeing new increment values printing to the screen from the newly scaled redis service and the cluster should round-robin requests to each newly created redis service. Synching that data is another story - but that wasn't the point of the quick demo.
 
 At this point you should be able to go back to your app and get it working on your cluster. You may have to change your code to reference the container names rather than the IP addresses but that is the point of running it on the cluster; it could be anywhere.
