@@ -43,7 +43,7 @@ I'm going to create a service that I can attach to, to run a simple Python scrip
 
 ```{bash}
 docker service create --replicas 1 --network my-app-network \
---name demo-alpine alpine /bin/sh -c "trap 'exit 0' INT TERM; while true; do echo Hello World; sleep 1; done"
+--name demo-alpine alpine /bin/sh -c "trap 'exit 0' INT TERM; while true; do echo Hello World; sleep 10; done"
 ```
 
 #### To do:
