@@ -85,19 +85,23 @@ while loopy == True:
     r.incr('counter')
     print(r.get('counter'))
     time.sleep(3)
-run the script from within your demo-alpine container
 ```
-### run your new script
-`python test.py`
+### run the script from within your demo-alpine container
+```{bash}
+python test.py
+1
+2
+3
+...
+```
 
 Notice that I've referenced the redis service by its container/service name not by IP, as it could be anywhere on the cluster. You should start seeing the incremented values print to screen.
 
-For extra fun, if it is working for you, scale the redis service to see it scale to the already running Python script.
+For extra fun, if it is working for you, scale the redis service and you can see it occur because the already running Python script will start hitting the new scaled service and print some requests against the new service (starting at 1 again).
 
 ### ssh into the manager node from another terminal session so you don't stop your demo-alpine session
 ```{bash}
 docker service scale demo-redis scaled to 3
 ```
-You should start seeing new increment values printing to the screen from the newly scaled redis service and the cluster should round-robin requests to each newly created redis service. Synching that data is another story - but that wasn't the point of the quick demo.
+You should start seeing new increment values printing to the screen from the newly scaled redis service and the cluster should round-robin requests to each newly created redis service. Synching that data is another story - but that wasn't the point of the quick demo!
 
-At this point you should be able to go back to your app and get it working on your cluster. You may have to change your code to reference the container names rather than the IP addresses but that is the point of running it on the cluster; it could be anywhere.
