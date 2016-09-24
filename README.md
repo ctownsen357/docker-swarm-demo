@@ -13,7 +13,6 @@ $ sudo docker swarm init
 This command will return the command you need to use in order to join the cluster; the command to be executed on your worker nodes.
 
 **Note:** It has been my experience that on some machines setting the `--listen-addr your.ip.address:2377` is necessary.
-* 
 
 ### Initialize one or more workers
 ```{bash}
