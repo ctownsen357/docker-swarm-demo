@@ -101,7 +101,7 @@ For extra fun, if it is working for you, scale the redis service and you can see
 
 ### ssh into the manager node from another terminal session so you don't stop your demo-alpine session
 ```{bash}
-docker service scale demo-redis scaled to 3
+docker service scale demo-redis=3
 ```
 You should start seeing new increment values printing to the screen from the newly scaled redis service and the cluster should round-robin requests to each newly created redis service. Synching that data is another story - but that wasn't the point of the quick demo!
 
